@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting started &mdash; BayesOpt4ROS  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Documentation" href="api_documentation.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> BayesOpt4ROS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#your-own-workspace">Your own workspace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-implementation">Client implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#c">C++</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-workspace-docker">Example workspace (Docker)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-docker">Set up Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-test-client">Running test client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_documentation.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BayesOpt4ROS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Here you find two ways of getting started with the BayesOpt4ROS package.
+If you already have a catkin workspace and would like to directly integrate BayesOpt4ROS into your workflow, please see <a class="reference internal" href="#your-own-workspace"><span class="std std-ref">this tutorial</span></a>.
+In case you just want to try out the package, follow <a class="reference internal" href="#example-workspace-docker"><span class="std std-ref">this example</span></a> to set up a workspace inside a Docker container.</p>
+<div class="section" id="your-own-workspace">
+<h2>Your own workspace<a class="headerlink" href="#your-own-workspace" title="Permalink to this headline">¶</a></h2>
+<p>For the following steps, we’ll assume that <code class="code docutils literal notranslate"><span class="pre">${WORKSPACE}</span></code> is the root of your catkin workspace.</p>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>BayesOpt4ROS requires Python 3, which is the default version when you use ROS Noetic (or newer).
+If you are using ROS Melodic (or older) you first need to set up Python 3 for your workspace.</p>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s clone BayesOpt4ROS as a package into your workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="si">${</span><span class="nv">WORKSPACE</span><span class="si">}</span>
+git clone https://github.com/lukasfro/bayesopt4ros.git src/bayesopt4ros
+</pre></div>
+</div>
+<p>Our package is written in Python and requires some 3rd parties libraries to work.
+You can easily install them via <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r src/bayesopt4ros/requirements.txt
+</pre></div>
+</div>
+<p>Now we should be ready to build the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Either this</span>
+catkin_make
+<span class="nb">source</span> devel/setup.bash
+<span class="c1"># Or this</span>
+catkin_make_isolated
+<span class="nb">source</span> devel_isolated/setup.bash
+</pre></div>
+</div>
+<p>You should be good to go now.
+One way of quickly testing if the installation worked is by launching the server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch bayesopt4ros bayesopt_server.launch
+</pre></div>
+</div>
+<p>You should see the output of the server similar to this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1616593243</span>.400756<span class="o">]</span>: <span class="o">[</span>BayesOpt<span class="o">]</span> Iteration <span class="m">0</span>: Ready to receive requests.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If roslaunch fails, make sure that the node script is executable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x src/bayesopt4ros/nodes/bayesopt_server.py
+</pre></div>
+</div>
+</div>
+<p>The server node is now ready to receive requests from a client (your node).
+Continue with the tutorial to see what callback methods you need to implement.</p>
+</div>
+<div class="section" id="client-implementation">
+<h3>Client implementation<a class="headerlink" href="#client-implementation" title="Permalink to this headline">¶</a></h3>
+<p>The BayesOpt4ROS package uses the ActionServer/ActionClient communication pattern.
+On the <a class="reference external" href="http://wiki.ros.org/actionlib_tutorials/Tutorials">official ROS homepage</a> you can find tutorials for an exemplary implementation.
+Since BayesOpt4ROS already provides the server side, you just need to implement the client code.
+In the following, we show you what methods/callbacks you have to implement to communicate with the server (depending on the language of your choice).</p>
+<div class="section" id="c">
+<h4>C++<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h4>
+<p>Until we have a more detailed description, you can also have a look at the <a class="reference external" href="https://github.com/lukasfro/bayesopt4ros/blob/main/test/integration/test_client_cpp.cpp">C++ test client</a>.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Explicitly show what methods have to be implemented.</p>
+</div>
+</div>
+<div class="section" id="python">
+<h4>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h4>
+<p>Until we have a more detailed description, you can also have a look at the <a class="reference external" href="https://github.com/lukasfro/bayesopt4ros/blob/main/test/integration/test_client_python.py">python test client</a></p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Explicitly show what methods have to be implemented.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-workspace-docker">
+<h2>Example workspace (Docker)<a class="headerlink" href="#example-workspace-docker" title="Permalink to this headline">¶</a></h2>
+<p>In case you do not directly want to install BayesOpt4ROS into your own workspace, we provide <a class="reference external" href="https://github.com/lukasfro/bayesopt4ros_workspace">a repository</a> to test the package within a Docker container.
+If you do not have <a class="reference external" href="https://www.docker.com/get-started">Docker</a> installed, now would be a good time to do so.</p>
+<div class="section" id="set-up-docker">
+<h3>Set up Docker<a class="headerlink" href="#set-up-docker" title="Permalink to this headline">¶</a></h3>
+<p>First, clone the workspace repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lukasfro/bayesopt4ros_workspace.git
+<span class="nb">cd</span> bayesopt4ros_workspace
+</pre></div>
+</div>
+<p>Next, let’s create an image from the provided Dockerfile and run a container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># -t tags a docker image with a name, &#39;bayesopt4ros&#39; in our case</span>
+docker build -t bayesopt4ros .
+
+<span class="c1"># -it runs the container in interactive mode</span>
+<span class="c1"># -v mounts our current directory to the workspace in the container</span>
+docker run -it -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/root/ws/ bayesopt4ros
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are working on a MacBook M1 with ARM chip, you need to adapt the Dockerfile to pull the right ROS image.
+Just have a look <a class="reference external" href="https://github.com/lukasfro/bayesopt4ros_workspace/blob/main/Dockerfile">here</a> and change the base image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For all machines except MacBooks with M1 CPU</span>
+FROM osrf/ros:noetic-desktop-full
+
+<span class="c1"># Use this image when your are using a MacBook with M1 CPU</span>
+FROM arm64v8/ros:noetic
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-test-client">
+<h3>Running test client<a class="headerlink" href="#running-test-client" title="Permalink to this headline">¶</a></h3>
+<p>The following commands will only work within the Docker container.
+Let’s build the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_make_isolated
+<span class="nb">source</span> devel_isolated/setup.bash
+</pre></div>
+</div>
+<p>The easiest way to see the server in action is by executing one of the integration tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rostest bayesopt4ros test_client_python.test
+</pre></div>
+</div>
+<p>If you want to look at the results, we provide a small visualization script.
+You can run the following command outside of the running Docker container if you want to directly show the results.
+We also save an image to disk to the logging directory (this also works within the Docker container since we mounted your local workspace to the container workspace).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 visualize.py --log-dir logs/forrester_ucb
+</pre></div>
+</div>
+<p>The resulting image should look something like this</p>
+<a class="reference internal image-reference" href="_images/exemplary_results.png"><img alt="Exemplary results" src="_images/exemplary_results.png" style="width: 600px;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="api_documentation.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Lukas Froehlich.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
